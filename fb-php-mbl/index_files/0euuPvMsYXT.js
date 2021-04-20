@@ -1,0 +1,7 @@
+if (self.CavalryLogger) { CavalryLogger.start_js(["j\/7Qt1c"]); }
+
+__d("MHybridWebLiteController",["MJSEnvironment","qex"],(function(a,b,c,d,e,f){"use strict";a={shouldTriggerFullPageNavigation:function(a){return b("MJSEnvironment").IS_ANDROID&&!b("MJSEnvironment").IS_TABLET&&a.getPath().indexOf("/marketplace")===0?b("qex")._("1907780")||b("qex")._("1907781"):!1}};c=a;e.exports=c}),null);
+__d("MInputFocus",["DOM","MViewport","setTimeoutAcrossTransitions"],(function(a,b,c,d,e,f){a={scrollTo:function(a,c){b("setTimeoutAcrossTransitions")(function(){b("DOM").hide(a),b("MViewport").scrollTo(0,c),b("DOM").show(a),a.setSelectionRange(a.selectionEnd,a.selectionEnd)},0)}};e.exports=a}),null);
+__d("isNodeWithinRect",[],(function(a,b,c,d,e,f){e.exports=a;function a(a,b){if(!a.getBoundingClientRect)return!1;a=a.getBoundingClientRect();return a.bottom>=b.top&&a.top<=b.bottom&&a.right>=b.left&&a.left<=b.right}}),null);
+__d("IntlQtEventFalcoEvent",["FalcoLoggerInternal","getFalcoLogPolicy_DO_NOT_USE"],(function(a,b,c,d,e,f){"use strict";a=b("getFalcoLogPolicy_DO_NOT_USE")("1848815");c=b("FalcoLoggerInternal").create("intl_qt_event",a);e.exports=c}),null);
+__d("prefetchImage",[],(function(a,b,c,d,e,f){e.exports=a;function a(a,b){var c=!0,d=new Image();d.onload=function(){c=!1,b&&b()};d.src=a;return{cancel:function(){if(!c)return;c=!1;d.onload=null;d.src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="}}}}),null);
